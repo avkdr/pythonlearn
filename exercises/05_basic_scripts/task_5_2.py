@@ -24,3 +24,38 @@ Out[1]: '11111111111111111111111111110000'
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+
+ip = input('Введите ip в формте 10.1.1.0/24: ')
+a = ip.split('/')
+b = a[0].split('.')
+c = int(a[1])
+n1 = int(b[0])
+n2 = int(b[1])
+n3 = int(b[2])
+n4 = int(b[3])
+zero = 32 - c
+mask = "1" * c + "0" * zero
+
+oktet1 = int(mask[0:8], 2)
+oktet2 = int(mask[8:16], 2)
+oktet3 = int(mask[16:24], 2)
+oktet4 = int(mask[24:32], 2)
+
+print(f'''
+    Network:
+    {n1:<8} {n2:<8} {n3:<8} {n4:<8}
+    {n1:08b} {n2:08b} {n3:08b} {n4:08b}
+
+    Mask:
+    /{c}
+    {oktet1:<8} {oktet2:<8} {oktet3:<8} {oktet4:<8}
+    {oktet1:08b} {oktet2:08b} {oktet3:08b} {oktet4:08b}
+''')
+
+
+
+
+
+
+
+
